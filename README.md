@@ -8,3 +8,6 @@ Subscribers receive this message.
 
 ## Redis server
 Make sure you have a running redis instance on the default port.
+
+## Jedis version
+We do not use the latest version of the Jedis driver: this driver is not compatible with spring-data.
