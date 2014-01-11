@@ -69,11 +69,6 @@ public class RedisQueueConfiguration {
     }
 
     @Bean
-    public JacksonJsonRedisSerializer jacksonJsonRedisSerializer() {
-        return new JacksonJsonRedisSerializer(SimpleMessage.class);
-    }
-
-    @Bean
     public RedisMessageListenerContainer redisMessageListenerContainer(
             @Qualifier("messageListenerAdapter") MessageListenerAdapter messageListenerAdapter,
             @Qualifier("channelTopic") ChannelTopic channelTopic) {
@@ -82,4 +77,10 @@ public class RedisQueueConfiguration {
         container.addMessageListener(messageListenerAdapter, channelTopic);
         return container;
     }
+
+    @Bean
+    public JacksonJsonRedisSerializer jacksonJsonRedisSerializer() {
+        return new JacksonJsonRedisSerializer(SimpleMessage.class);
+    }
+
 }
